@@ -5,4 +5,4 @@
 - นำไฟล์ mesb_database.sql ไป import ลง MySql
 
 วิธีรัน api python
-- เปิดไฟล์ api.py ใน path  ...
+- เปิดไฟล์ api.py ใน path : serverfile/mobile_api/api.py
