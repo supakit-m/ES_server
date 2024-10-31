@@ -1,0 +1,23 @@
+
+/* เอาไว้ test เฉยๆ ไม่ได้ใช้อะไร*/
+
+body {
+    font-family: Monospace;
+    background-color:#dfeef1;
+}
+/* .f-f1 {
+    font-family: Cursive ;
+}*/
+.text-col-conten {
+    color: #00c8e2 ;
+}
+.bg{
+    background-color:#ffffff;
+}
+.hv:hover {
+    background-color: #00c8e2;
+    color: #000000;
+}
+.gf {
+    background-color:#e2eff1;
+}
