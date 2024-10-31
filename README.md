@@ -8,7 +8,7 @@
   - ดาวน์โหลดและติดตั้ง Python เวอร์ชันล่าสุดจากเว็บไซต์ทางการของ Python "https://www.python.org/downloads/"
   - เมื่อติดตั้งเสร็จแล้ว ทดสอบว่า Python ติดตั้งสำเร็จด้วยการเปิด Command Prompt หรือ Terminal แล้วพิมพ์ "python --version"
   - ติดตั้งไลบรารีที่จำเป็นด้วยการเปิด Command Prompt หรือ Terminal แล้วพิมพ์
-  - - pip install mediapipe==0.10.14
+    - pip install mediapipe==0.10.14
     - pip install opencv-python==4.9.0.80
     - pip install numpy==1.26.3
     - pip install fastapi==0.110.2
