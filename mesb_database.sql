@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 31, 2024 at 06:04 AM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.0.28
+-- Generation Time: Nov 02, 2024 at 07:14 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -42,13 +42,11 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`adminID`, `email`, `username`, `password`, `changeEmailDT`, `usable`, `token`) VALUES
-(1, 'fluky11731@gmail.com', 'fluky', 'e7433fe0aea99a10a2613e3477097c7e32b986527140b5dfe6b68d543e7f78de', NULL, 1, NULL),
-(3, 'sss@gmail.com', 'sss', '$2y$10$DZ8jvSYGqooXQTWtYvyUvOEQ7WkI2jhG2fJvGj92QCo6vlh2iF.7y', NULL, 0, NULL),
-(5, 'ggg@mail.com', 'g', '$2y$10$we2IbXztz0ZBporMpDBjFeBd5bwtRzexBfDfE2jEPAYJ1dOYH9uZy', NULL, 0, NULL),
-(6, 'fff@mail.com', 'f', '$2y$10$08b6p5v/ro/XG1SBKI1QuuvMrrBy7ENOh89hIxuzWxdev4cROLW4e', NULL, 0, NULL),
-(7, 'test000@mail.test', '0000', '9af15b336e6a9619928537df30b2e6a2376569fcf9d7e773eccede65606529a0', NULL, 1, 'tokenTest'),
-(8, '1111@gmail.com', '1111', '0ffe1abd1a08215353c233d6e009613e95eec4253832a761af28ff37ac5a150c', NULL, NULL, NULL),
-(14, 'sinonblackpan@gmail.com', 'spk', '2be597ea2af55525ee0861a12012848cab61fa5b2af97f678a51cb7f116a62c7', NULL, 1, NULL);
+(1, 'fluky11731@gmail.com', 'fluky', '1aacb4b30884c1382163955d95d9d89ea47badfa29e9be2be092c008cd36e737', NULL, 1, NULL),
+(8, 'phonchaiphikulkhaw@gmail.com', 'Wave', 'cabb4ab725e2f4a6c7b3aa8307f8e103a791c493f5f71ea2760d79a033af54ec', NULL, 1, NULL),
+(9, 'jirayut.ch2002@gmail.com', 'Full', '74af5b19f0515dbd47e5009c6a4251e72be45ecd0152030fbf93cd19aa72efb9', NULL, 1, NULL),
+(12, 'projectes.webapp@gmail.com', 'Admin', '8b3987887195c5dfbac358a94da70a038b9594d42067ab6f392ec1814387da90', NULL, 1, NULL),
+(13, 'temttt032545@gmail.com', 'Full2', 'd15807472096bef9871038f6ecae5efe75f5a7c4b818b0829b6db0f94bd31f75', NULL, NULL, 'dadcb992782396a6d161');
 
 -- --------------------------------------------------------
 
@@ -101,9 +99,9 @@ CREATE TABLE `groups` (
 --
 
 INSERT INTO `groups` (`groupID`, `groupName`, `defaultItemID`) VALUES
-(1, 'detectFreq', 2),
-(2, 'sitLimit', 9),
-(3, 'sitLimitFreq', 14);
+(1, 'detectFreq', 33),
+(2, 'sitLimit', 8),
+(3, 'sitLimitFreq', 12);
 
 -- --------------------------------------------------------
 
@@ -114,7 +112,6 @@ INSERT INTO `groups` (`groupID`, `groupName`, `defaultItemID`) VALUES
 CREATE TABLE `items` (
   `itemID` int(11) NOT NULL,
   `groupID` int(11) DEFAULT NULL,
-  `itemName` text DEFAULT NULL,
   `item` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -122,23 +119,17 @@ CREATE TABLE `items` (
 -- Dumping data for table `items`
 --
 
-INSERT INTO `items` (`itemID`, `groupID`, `itemName`, `item`) VALUES
-(1, 1, NULL, '3'),
-(2, 1, NULL, '5'),
-(3, 1, NULL, '7'),
-(4, 1, NULL, '9'),
-(5, 1, NULL, '12'),
-(6, 2, NULL, '10'),
-(7, 2, NULL, '20'),
-(8, 2, NULL, '30'),
-(9, 2, NULL, '40'),
-(10, 2, NULL, '50'),
-(11, 3, NULL, '3'),
-(12, 3, NULL, '5'),
-(13, 3, NULL, '7'),
-(14, 3, NULL, '9'),
-(15, 3, NULL, '12'),
-(24, 3, NULL, '20');
+INSERT INTO `items` (`itemID`, `groupID`, `item`) VALUES
+(7, 2, '20'),
+(8, 2, '30'),
+(9, 2, '40'),
+(10, 2, '50'),
+(11, 3, '3'),
+(12, 3, '5'),
+(29, 1, '15'),
+(33, 1, '5'),
+(34, 1, '10'),
+(38, 3, '10');
 
 -- --------------------------------------------------------
 
@@ -156,7 +147,7 @@ CREATE TABLE `member` (
   `sitLimitAlarmFreq` int(11) DEFAULT NULL,
   `lastLoginDT` datetime DEFAULT NULL,
   `lastDetectDT` datetime DEFAULT NULL,
-  `newNotification` tinyint(1) NOT NULL DEFAULT 0
+  `newNotification` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -177,16 +168,8 @@ CREATE TABLE `notification` (
 --
 
 INSERT INTO `notification` (`notificationID`, `startDate`, `endDate`, `message`) VALUES
-(1, '2024-06-10', NULL, 'hello world'),
-(4, '2024-06-08', '2024-06-29', 'dfzgsgfjskdf;dfgdsgfjsdf'),
-(5, '2024-06-06', '2028-06-15', 'test on web'),
-(6, '2024-06-13', '2024-06-07', 'test on web'),
-(7, '2024-06-13', '2024-06-07', 'test on web'),
-(8, '2024-06-13', '2024-06-07', 'test on web'),
-(9, '2024-06-13', '2024-06-07', 'test on web'),
-(24, '2024-08-27', '2024-09-13', 'Test 01-09'),
-(25, '2024-09-04', '2024-09-27', 'test new notification'),
-(26, '2024-08-26', '2024-09-28', 'test new notification v.2');
+(32, '2024-08-01', '2024-12-31', 'ประกาศลบประวัติการตรวจจับ : เรียนผู้ใช้งานทุกท่าน ทางเราจะทำการลบประวัติการตรวจจับที่มีวันที่ก่อนปี 2024 เพื่อปรับปรุงพื้นที่จัดเก็บข้อมูล เรียนมาเพื่อทราบ'),
+(33, '2024-10-01', '2024-10-18', 'ประกาศแจ้งปิดปรับปรุงระบบ : การปิดปรับปรุงเซิร์ฟเวอร์ใน วันที่ 18 ตุลาคม 2024 เพื่อปรับปรุงและเพิ่มประสิทธิภาพการทำงานของระบบ ในระหว่างนี้ ระบบทั้งหมดจะไม่สามารถใช้งานได้ชั่วคราว ขออภัยในความไม่สะดวก');
 
 -- --------------------------------------------------------
 
@@ -267,7 +250,7 @@ ALTER TABLE `profilesaxis`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `adminID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `adminID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `dailyreport`
@@ -291,7 +274,7 @@ ALTER TABLE `groups`
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
-  MODIFY `itemID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `itemID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `member`
@@ -303,7 +286,7 @@ ALTER TABLE `member`
 -- AUTO_INCREMENT for table `notification`
 --
 ALTER TABLE `notification`
-  MODIFY `notificationID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `notificationID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- Constraints for dumped tables
